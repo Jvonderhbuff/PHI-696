@@ -76,8 +76,10 @@ T	T	T	T	T
   ```
   Note that any definitions require that V has access to the connectives and quantifiers of first-order logic, which is not specified in the prompt. I have assumed that they are available, as otherwise there is no way to define any of the formulas in the following examples. 
   
+  Also note that none of the gendered examples are definable if we allow for non-binary genders and if we read male or female as terms referring to sex rather than gender. In the first case, this would mean that we cannot assume that man and women are binary opposites to which these labels apply. In the latter, case, male or female unary relations will not refer to any of the gendered terms mentioned below.
+  
   (a)  B(x,y) that says that x is a brother of y
-  This is not possible to define in V, as there are no brother-of relationship in V and no way to define male relationships in V.
+  B= ∃(x)∃(y)∃(z) (P(z,x)^P(z,y)^~F(x))
   (b)  A(x,y) that says that x is an aunt of y
   A(x,y)= ∃(x)∃(y)∃(z)∃(w) (P(z,y)^P(w,z)^P(w,x)^~P(x,y)^Fx).
   (c)  C(x,y) that says that x and y are cousins
