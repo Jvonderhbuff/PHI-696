@@ -64,11 +64,11 @@ T	T	T	T	T
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```
   (a) (A→B)→C
-  ((AvB)v(~AvB)v(~Av~B)v(Av~B))^(Cv~C)
+  (A∨C)∧(¬B∨C)
   (b) (A→(B∨C))∨(C→¬A)
-  ((Av(BvC))v(~Av(BvC))v(~Av~(BvC)))v((Cv~A)v(~Cv~A)v(~CvA))
+  Av~A
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
-  ((~Av~BvC)v(~Av~C)v(BvC))vA
+ Bv~B
   ```
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
@@ -93,46 +93,46 @@ T	T	T	T	T
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  B= Parent_of: (zx, zy) Male^∃Parent_of.(zx^zy).
+  B= Parent_of: (zx, zy) Male^∃Parent_of.(∃parent_of>=2).
   Male: (x)
   (b)  A that says that x is an aunt of y
-  A: Parent_of: (zw, zx, wy) ~Male^(∃parent_of.(zw^zy).^∃parent_of.(wy).)
+  A: Parent_of: (zw, zx, wy) ~Male^(∃parent_of.(∃parent_of>=1).^~∃parent_of.(>=1).)
   (c)  C that says that x and y are cousins
-  C: parent_of: (zx, wy, vw, vz) ∃Parent_of.(vw^vz).^∃Parent_of.(zx).^∃Parent_of.(wy).
+  C: parent_of: (zx, wy, vw, vz) ∃Parent_of.(∃parent_of>=2).^∃Parent_of.(∃parent_of>=1).^∃Parent_of.(∃parent_of>=1).
   (d)  O that says that x is an only child 
-  O= parent_of (yx) ∃parent_of.(yx).
+  O= parent_of (∃parent_of=1) 
   (e)  T that says that x has exactly two brothers 
-  T= Parent_of: (wx,wy,wz) ∃parent_of.(wx,wy,wz)^Male(Y^Z)
+  T= Parent_of: (wx,wy,wz) ∃parent_of.(∃Parent_of=3)^Male(∃Male>=2)
   Male: (y,z)
   ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
-B= Male^Parent_of.(zw^zy).
-O= ∃parent_of.(vx).
+B= Male^∃Parent_of.(∃parent_of>=2).
+O= parent_of (∃parent_of=1)
 O^~B
 B^~O
-Jason= Instance of B
-Mary Ann= Parent_of Jason and Mona
-Mona= Sibling of Jason
-Killian: Instance of O
+Jason: B
+(Mary Ann, Jason)
+(Mary Ann, Mona)
+Killian: O
 Amanda: Parent_of Killian
-Jason=w,B
-Mary Ann=Z
-Mona=Y
-Killian=O,x
-Amanda=v
-parent=z,v
-brother=w
-Only child=x
-child=w,y,x
-parent_of=zw,zy,vx
-Male: B,w
+Jason: (w,B)
+Mary Ann: Z
+Mona: Y
+Killian: (O,x)
+Amanda: v
+parent: (z,v)
+brother: w
+Only child: x
+child: w,y,x
+parent_of: zw,zy,vx
+Male: x,w
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
-  The first claims that for something such that it is x, every thing such that it is Y has a certain relationship with it. The second claims that for all things such that they are Y, there is some X that has a certain relationship with it.
+  The first claims that for something such that it is x, every thing such that it is Y has a certain relationship with it. The second claims that for all things such that they are X, there is some Y that has a certain relationship with it.
   (b) ∃x∀y∃z and ∀x∃y∀z 
   The first claims that for something such that it is x, everything such that it is Y has a certain relationship with X and that there is something such that it is Z has a certain relationship with all Ys and some X. The second claims that for all things such that they are X, there is something such that it is Y that has a certain relationship with it and everything such that it is Z has a certain relationship with some Y and everything such that it is X.
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
@@ -142,7 +142,7 @@ Male: B,w
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-X1>Y1, X2>Z1<Y2, 
+X1>Y1, X2>Z1<Y2, X2>Y2 Arrows indicate relationship R and its directionality
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 X1>Y1>Z1, X2>Z2
 ```
