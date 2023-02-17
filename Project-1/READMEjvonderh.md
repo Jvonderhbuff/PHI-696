@@ -143,6 +143,13 @@ Male: x,w
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 X1>Y1, X2>Z1<Y2, X2>Y2 Arrows indicate relationship R and its directionality
+``mermaid
+graph LR
+A((a)) ---B((b))
+A((a)) ---C((c))
+A((a)) ---A((a))
+
+ " ``` " 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 X1>Y1>Z1, X2>Z2
 ```
