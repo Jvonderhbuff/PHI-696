@@ -142,15 +142,23 @@ Male: x,w
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-X1>Y1, X2>Z1<Y2, X2>Y2 Arrows indicate relationship R and its directionality
-``mermaid
-graph LR
-A((a)) ---B((b))
-A((a)) ---C((c))
-A((a)) ---A((a))
- ``` 
+```
+ ```mermaid
+graph LR;
+    X1-->Y1;
+    X2-->Z1;
+    Y2-->Z1;
+    X2-->Y2;
+```
+
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-X1>Y1>Z1, X2>Z2
+```
+```
+```mermaid
+graph LR;
+    X1-->Y1;
+    Y1-->Z1;
+    X2-->Z2;
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
