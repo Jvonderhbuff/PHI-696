@@ -74,20 +74,20 @@ T	T	T	T	T
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
   ```
-  Note that any definitions require that V has access to the connectives and quantifiers of first-order logic, which is not specified in the prompt. I have assumed that they are available, as otherwise there is no way to define any of the formulas in the following examples. 
+  Note that any definitions require that V has access to the connectives and quantifiers of first-order logic. I have assumed that they are available, as otherwise there is no way to define any of the formulas in the following examples. 
   
-  Also note that none of the gendered examples are definable if we allow for non-binary genders and if we read male or female as terms referring to sex rather than gender. In the first case, this would mean that we cannot assume that man and women are binary opposites to which these labels apply. In the latter, case, male or female unary relations will not refer to any of the gendered terms mentioned below.
+  Also note that none of the gendered examples are definable if we allow for non-binary genders and if we read male or female as terms referring to sex rather than gender. In the first case, this would mean that we cannot assume that man and women are binary opposites to which these labels apply. In the latter case, male or female unary relations will not refer to any of the gendered terms mentioned below.
   
   (a)  B(x,y) that says that x is a brother of y
-  B= ∃(x)∃(y)∃(z) (P(z,x)^P(z,y)^~F(x))
+  ∀(x)∀(y)(B(x,y)= ∀(z)(P(z,x)^P(z,y)^~F(x)^x~=y))
   (b)  A(x,y) that says that x is an aunt of y
-  A(x,y)= ∃(x)∃(y)∃(z)∃(w) (P(z,y)^P(w,z)^P(w,x)^~P(x,y)^Fx).
+  ∀(x)∀(y)(A(x,y)= ∀(z)∀(w) (P(z,y)^P(w,z)^P(w,x)^~P(x,y)^Fx^(x~=y~=z~=w)).
   (c)  C(x,y) that says that x and y are cousins
-  C(x,y): ∃(v)∃(w)∃(x)∃(y)∃(z) (P(v,x)^P(w,y)^P(z,v)^P(z,w)^~P(w,x)^~P(v,y))
+  ∀(x)∀(y)(C(x,y): ∀(v)∀(w)∀(z) (P(v,x)^P(w,y)^P(z,v)^P(z,w)^~P(w,x)^~P(v,y)^(x~=y~=z~=v~=w))
   (d)  O(x) that says that x is an only child 
-  O(x)= ∃(x)∃(y)(P(x,y)^~∃(z)P(x,z))
+  ∀(x)(O(x)= ∀(y)(P(x,y)^~∃(z)P(x,z)^(x~=y~=z)))
   (e)  T(x) that says that x has exactly two brothers
-  T(x)= ∃(w)∃(x)∃(y)∃(z) ((P(w,x)^(P(w,y)^(P(w,z)^~F(y)^~(F(z))^~∃(v)(P(w,v))
+  ∀(x)(T(x)= ∀(w)∀(y)∀(z) ((P(w,x)^(P(w,y)^(P(w,z)^~F(y)^~(F(z))^~∃(v)(P(w,v)^(x~=y~=z~=v~=w)))
   ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
