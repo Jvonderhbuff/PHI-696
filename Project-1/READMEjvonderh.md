@@ -93,23 +93,22 @@ T	T	T	T	T
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  B= Parent_of: (zx, zy) Male^∃Parent_of.(∃parent_of>=2).
+  B= Parent_of: (zx, zy) ∃Parent_of.M.^∃parent_of.~M.
   Male: (x)
   (b)  A that says that x is an aunt of y
-  A: Parent_of: (zw, zx, wy) ~Male^(∃parent_of.(∃parent_of>=1).^~∃parent_of.(>=1).)
+  This can not be defined in V because there is no way to specify a non-parent relation.
   (c)  C that says that x and y are cousins
-  C: parent_of: (zx, wy, vw, vz) ∃Parent_of.(∃parent_of>=2).^∃Parent_of.(∃parent_of>=1).^∃Parent_of.(∃parent_of>=1).
+  This can not be defined in V because there is no way to specify a non-parent relation
   (d)  O that says that x is an only child 
-  O= parent_of (∃parent_of=1) 
+  O= ∃Parent_of
   (e)  T that says that x has exactly two brothers 
-  T= Parent_of: (wx,wy,wz) ∃parent_of.(∃Parent_of=3)^Male(∃Male>=2)
-  Male: (y,z)
+  This cannot be defined in V because there is no way to specify a specific parent for three specific people nor a way to specify a non-parent relation.
   ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
-B= Male^∃Parent_of.(∃parent_of>=2).
-O= parent_of (∃parent_of=1)
+B= ∃Parent_of.M.^∃parent_of.~M..
+O= ∃Parent_of
 O^~B
 B^~O
 Jason: B
