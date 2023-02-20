@@ -78,15 +78,27 @@ Bisimulation:
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-The finite model property is 
+The finite model property is a property of a system of logic (roughly a way of producing sentences which can be checked for truth or falsity or which can be used to systematically say certain things) where everything that can be said in that system which isn't known for sure can be disproved with a certain interpretation of the system without having an infinite number of steps to do so. For example, a logic might have this property if we take the sentences "All parents have kids" and "All bachelors are unmarried" as known for sure within that system. In this system, we might get another sentence like "All bachelors do not have kids." If we can show that this sentence is false in a certain interpretation without having to make an infinite number of other claims and that this is the only other sentence not known for sure in the system, then this system will meet this property. In this case, we might interpret "bachelor" as a man or non-binary person who may or may not have been in a relationship in the past. This would mean that this sentence can be understood as false within this system, as being a bachelor does not prevent someone from having had a kid.
+
+This is useful to know because it tells us whether we can know if any given sentence within a system can be true or false. If a system lacks that property, then there may be a sentence and interpretation which may not be true or false in a way we can determine. If it has that property, then we know that any sentence in that system will be either true or false and will know that we will have results if we try to prove it one way or another. If we care to know whether a specific system may be checkable for the truth or falsity of its parts, then we will be interested in this property. If not (such as in cases where the truth of falsity of involved claims does not matter for our interests), then we would not be interested in this property
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-The Tree model property is 
+The Tree model property is a property of logic systems (again roughly a way of producing sentences which can be checked for truth or falsity or as a systematic way of expressing certain things). This property is about the way in which we can check certain sentences in that system for truth or falsity based on a specific interpretation of the system in question through the use of a "tree" model. 
+
+A tree model is one where you start with a single part of the sentence and go down through branches until the sentence can be shown to be true of false. This may stop at some point or go on infinitely. For instance we may have an interpretation where we have the statements "Lemons are yellow" and "Anything that isn't a lemon is not yellow." We may wish to determine if the sentence "Apples are not lemons." With this system and sentence, we may test the last part by splitting off the parts of "apples" and "not lemons" from the whole statement. From there, we may continue doing the same technique until we find the sentence to be true or false.
+
+This is useful to determine because the tree model is an easy way to determine a sentence's truth or falsity, and conveys something about the ability to determine the truth or falsity of the statements which can be said in a given system. If we want to determine whether or not this useful method is an option for checking this truth or falsity, we would be interested in whether or not it has the tree model property. If we do not wish to use this method, however, or if we are uninterested in the truth or falsity of the sentences which can be said in a system then we would not be interested in determining whether or not the system in question has the tree model property.
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
-The tableau algorithm is generating this inference by 
+The tableau algorithm is generating this inference by looking to what is involved with the P (Part_of) relation as a sub-property of O (overlaps) where P is transitive and O is symmetric. Since P is transitive, if we have three connected individuals (x,y,z) where x is connected to y and y is connected to z, then x is also connected to z. This will carry parthood across several relationships. Since O is symmetric, this will mean that any two individuals where one has this property with the other will also have the other have this property with the one. P's status as a sub-property of O will then mean that any part_of relation will also constitute an overlapping relation. 
+
+Given this, it knows that c is a part of a. Since c is a part of a this will then mean that c will also overlap with a since the part_of relation is a sub-property of the overlapping relation.
+
+
+![Protege Screenshot](https://user-images.githubusercontent.com/123973744/220014416-0fe043bd-dfbd-4c11-9d5e-db95f64e3b46.png)
+
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
@@ -96,3 +108,4 @@ The tableau algorithm is generating this inference by
   (e) There are no parts between a and g in common
 ```
 Provide a screenshot of your results here. 
+![Protege Screenshot 2](https://user-images.githubusercontent.com/123973744/220016598-9a7a57d0-3237-4b01-a1e5-9e87497340ae.png)
