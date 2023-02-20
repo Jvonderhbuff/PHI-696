@@ -47,10 +47,10 @@ Disjoint: none
 ∃R.(∀R.^∃R.)
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 Note that there is an unbound x in this axiom.
-∀R.(
+∀R.(∀R.^∃R-.^∀A)
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
-Note that there is an unbound x in this axiom
-∀R.(
+Note that all xs are unbound in this axiom
+∀R.(∀A^∃R-.^∃B)
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
