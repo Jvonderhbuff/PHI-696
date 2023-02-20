@@ -54,15 +54,24 @@ Note that all xs are unbound in this axiom
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
-Interpretation:
+Interpretation:P = Professor
 
-Bisimulation:
+P ⊓ ∃R.T (ALC interpretation cannot distinguish between numbers of successors)
+
+P ⊓ ≥ 2R.T(ALCN Interpretation)
+P ⊓ ≥ 3R.T(ALCN Interpretation)
+
+
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
-Interpretation:
+Interpretation:P = Professor
 
-Bisimulation:
+P ⊓ ∃R.T 
+
+P ⊓ ≥ 2R.T
+P ⊓ ≥ 3R.T
+
 
 6. Explain the difference - using natural language - between the description logic expressions:
   ```
