@@ -25,18 +25,29 @@ Tip #4: Work together as a team.
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 PP= ∀part_of
+
 ipp= ∀part_of
+
 ip= ∀part_of-
+
 O= ∀part_of^∃part_of
+
 D= ∀~part_of
 
 Lazarus: PP, x
+
 (Lazarus, City)
+
 City: Ipp, Y
+
 Lazarus: Part_of City
+
 City: Part_of Lazarus
+
 Proper part: x, y
+
 overlaps: x, y
+
 Disjoint: none
 
 3. Translate the following first-order logic axioms into ALCI: 
