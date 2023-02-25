@@ -12,27 +12,27 @@ Tip #4: Work together as a team.
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
   (a)  PP that says that x is a proper part of y
-  PP= ∀part_of
+  PP= ∃part_of^~∃part-of-
   (b)  iPP that says that y is a proper part of x
-  iPP= ∀part_of
+  iPP= ∃part_of-^~∃part-of
   (c)  iP that says that y has x as part
-  ip= ∀part_of-
+  ip= ∃part_of-
   (d)  O that says that x overlaps y
-  O= ∀part_of^∃part_of
+  O= ∃part_of^∃part_of-
   (e)  D that says that x and y are disjoint
-  D= ∀~part_of
+  D= ∃~part_of^∃~part-of-
 ```
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
-PP= ∀part_of
+PP= ∃part_of^~∃part-of-
 
-ipp= ∀part_of
+ipp= ∃part_of-^~∃part-of
 
-ip= ∀part_of-
+ip= ∃part_of-
 
-O= ∀part_of^∃part_of
+O= ∃part_of^∃part_of-
 
-D= ∀~part_of
+D= ∃~part_of^∃~part-of-
 
 Lazarus: PP, x
 
@@ -53,35 +53,50 @@ Disjoint: none
 3. Translate the following first-order logic axioms into ALCI: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-∀R.(∃R.^∀R.)
+∃R.(∀R.(∀R¯.T))
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-∃R.(∀R.^∃R.)
+∃R¯.(∃R.(∃R¯.T))
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 Note that there is an unbound x in this axiom.
-∀R.(∀R.^∃R-.^∀A)
+∀R.∃R.∀R.A
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 Note that all xs are unbound in this axiom
-∀R.(∀A^∃R-.^∃B)
+(∀R.A)^(∃R.B)
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
-Interpretation:P = Professor
+Interpretation: C=Candy
 
-P ⊓ ∃R.T (ALC interpretation cannot distinguish between numbers of successors)
+C^∃R.T 
 
-P ⊓ ≥ 2R.T(ALCN Interpretation)
-P ⊓ ≥ 3R.T(ALCN Interpretation)
-
+C^>= 2R.t
+```
+```
+```mermaid
+graph LR;
+    C-->R1;
+    C2-->R2;
+    C2-->R3;
+```
+```
 
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
-Interpretation:P = Professor
+Interpretation: C=Candy
 
-P ⊓ ∃R.T 
+C^∃R.T  
 
-P ⊓ ≥ 2R.T
-P ⊓ ≥ 3R.T
+C^=1R.t
+```
+```
+```
+```mermaid
+graph LR;
+    C-->R1;
+    C2-->R2;
+```
+```
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
