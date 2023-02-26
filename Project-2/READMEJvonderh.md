@@ -132,7 +132,8 @@ The tableau algorithm is generating this inference by looking to what is involve
 Given this, it knows that c is a part of a. Since c is a part of a this will then mean that c will also overlap with a since the part_of relation is a sub-property of the overlapping relation.
 
 
-![Protege Screenshot](https://user-images.githubusercontent.com/123973744/220014416-0fe043bd-dfbd-4c11-9d5e-db95f64e3b46.png)
+![Protege Screenshot](https://user-images.githubusercontent.com/123973744/221385499-7964fbd3-6aa3-4477-8f6f-a33b544f0b06.png)
+
 
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
@@ -144,4 +145,5 @@ Given this, it knows that c is a part of a. Since c is a part of a this will the
 ```
 Provide a screenshot of your results here. 
 
-![Protege Screenshot 2](https://user-images.githubusercontent.com/123973744/220016598-9a7a57d0-3237-4b01-a1e5-9e87497340ae.png)
+![image_2023-02-25_191618086](https://user-images.githubusercontent.com/123973744/221385490-8573b2f1-d34c-45f5-9a15-bca2e604d934.png)
+
