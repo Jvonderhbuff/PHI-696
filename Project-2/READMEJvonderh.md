@@ -34,19 +34,19 @@ O= ∃part_of^∃part_of-
 
 D= ∃~part_of^∃~part-of-
 
-Lazarus: PP, x
+(Lazarus,x): PP
 
 (Lazarus, City)
 
-City: Ipp, Y
+(City, y): Ipp
 
-Lazarus: Part_of City
+(Lazarus, City): Part_of
 
-City: Part_of Lazarus
+(City, Lazarus): Part_of
 
-Proper part: x, y
+Proper part: Lazarus, City
 
-overlaps: x, y
+overlaps: none
 
 Disjoint: none
 
@@ -102,20 +102,20 @@ graph LR;
 6. Explain the difference - using natural language - between the description logic expressions:
   ```
   (a) ∃r.C and ∀r.C
-  The first is saying that there is something such that it is an instance of the concept r and the second says that every instance of C is an instance of concept r.
-  (b) ∃r-.C and ∀r-.C
-  The first claims that there is some instance of C where it is the inversion of the concept r and the second claims that all instances of C are an inversion of concept r.
+  The first is saying that there for all things such that they are x, there is something y which is an instance of C  which is r-related to it and the second says that for all things such that they are x, everything y which is an instance of c is r-related to it.
+ (b) ∃r-.C and ∀r-.C
+   The first is saying that there for all things such that they are x, there is something y which is an instance of C which is inversely r-related to it and the second says that for all things such that they are x, everything y which is an instance of c is inversely r-related to it.
   (c) <=nr and <=nr.C
-  The first claims that there is something that is less than or equal to the concept nr and the second claims that there is something that is less than or C which is an instance of concept nr.
+  The first claims that for all things such that they are x, there are less than or equal to a n number of r successors. In the second part, it says that for all things such that they are x, there are less than or equal to n number of r successors which are instances of C.
   (d) ∃r-.C and ∃r-.{a} 
-  The first claims that there is some instance of C which is an inversion of concept r and the second claims that the singleton set of a includes an instance of an inversion of the concept of r.
+  The first claims that there is some instance of C which has an inverse r-relationship with all things such that they are x and the second claims that the singleton set of a includes an instance of something which bears an inverse r-relationship with all things such that they are x.
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-The finite model property is a property of a system of logic (roughly a way of producing sentences which can be checked for truth or falsity or which can be used to systematically say certain things) where everything that can be said in that system which isn't known for sure can be disproved with a certain interpretation of the system without having an infinite number of steps to do so. For example, a logic might have this property if we take the sentences "All parents have kids" and "All bachelors are unmarried" as known for sure within that system. In this system, we might get another sentence like "All bachelors do not have kids." If we can show that this sentence is false in a certain interpretation without having to make an infinite number of other claims and that this is the only other sentence not known for sure in the system, then this system will meet this property. In this case, we might interpret "bachelor" as a man or non-binary person who may or may not have been in a relationship in the past. This would mean that this sentence can be understood as false within this system, as being a bachelor does not prevent someone from having had a kid.
+The finite model property is a property of a system of logic (roughly a way of producing sentences which can be checked for truth or falsity or which can be used to systematically say certain things) where everything that can be said in that system (where that system does not go on forever) which isn't known for sure can be disproved with a certain interpretation of the system without having an infinite number of steps to do so. For example, a logic might have this property if we take the sentences "All parents have kids" and "All bachelors are unmarried" as known for sure within that system. In this system, we might get another sentence like "All bachelors do not have kids." If we can show that this sentence is false in a certain interpretation without having to make an infinite number of other claims and that this is the only other sentence not known for sure in the system, then this system will meet this property. In this case, we might interpret "bachelor" as a man or non-binary person who may or may not have been in a relationship in the past. This would mean that this sentence can be understood as false within this system, as being a bachelor does not prevent someone from having had a kid.
 
-This is useful to know because it tells us whether we can know if any given sentence within a system can be true or false. If a system lacks that property, then there may be a sentence and interpretation which may not be true or false in a way we can determine. If it has that property, then we know that any sentence in that system will be either true or false and will know that we will have results if we try to prove it one way or another. If we care to know whether a specific system may be checkable for the truth or falsity of its parts, then we will be interested in this property. If not (such as in cases where the truth of falsity of involved claims does not matter for our interests), then we would not be interested in this property
+This is useful to know because it tells us whether we can know if any given sentence within a system can be true or false. If a system lacks that property, then there may be a sentence and interpretation which may not be true or false in a way we can determine. If it has that property, then we know that any sentence in that system will be either true or false and will know that we will have results if we try to prove it one way or another. If we care to know whether a specific system may be checkable for the truth or falsity of its parts, then we will be interested in this property. This may be due to concerns about checking a system efficiently, or for the sake of creating an ai based on the system so that it doesn't fall down a hole of infinitely checking one statement and interpretation. If not (such as in cases where the truth of falsity of involved claims does not matter for our interests), then we would not be interested in this property
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
@@ -123,7 +123,7 @@ The Tree model property is a property of logic systems (again roughly a way of p
 
 A tree model is one where you start with a single part of the sentence and go down through branches until the sentence can be shown to be true of false. This may stop at some point or go on infinitely. For instance we may have an interpretation where we have the statements "Lemons are yellow" and "Anything that isn't a lemon is not yellow." We may wish to determine if the sentence "Apples are not lemons." With this system and sentence, we may test the last part by splitting off the parts of "apples" and "not lemons" from the whole statement. From there, we may continue doing the same technique until we find the sentence to be true or false.
 
-This is useful to determine because the tree model is an easy way to determine a sentence's truth or falsity, and conveys something about the ability to determine the truth or falsity of the statements which can be said in a given system. If we want to determine whether or not this useful method is an option for checking this truth or falsity, we would be interested in whether or not it has the tree model property. If we do not wish to use this method, however, or if we are uninterested in the truth or falsity of the sentences which can be said in a system then we would not be interested in determining whether or not the system in question has the tree model property.
+This is useful to determine because the tree model is an easy way to determine a sentence's truth or falsity, and conveys something about the ability to determine the truth or falsity of the statements which can be said in a given system. If we want to determine whether or not this useful method is an option for checking this truth or falsity, we would be interested in whether or not it has the tree model property. This would help us understand the basic knowledge that anything which uses that system might have.  If we do not wish to use this method, however, or if we are uninterested in the truth or falsity of the sentences which can be said in a system then we would not be interested in determining whether or not the system in question has the tree model property.
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
@@ -143,4 +143,5 @@ Given this, it knows that c is a part of a. Since c is a part of a this will the
   (e) There are no parts between a and g in common
 ```
 Provide a screenshot of your results here. 
+
 ![Protege Screenshot 2](https://user-images.githubusercontent.com/123973744/220016598-9a7a57d0-3237-4b01-a1e5-9e87497340ae.png)
