@@ -130,7 +130,7 @@ This is useful to determine because the tree model is an easy way to determine a
 The tableau algorithm is generating this inference by looking to what is involved with the P (Part_of) relation as a sub-property of O (overlaps) where P is transitive and O is symmetric. Since P is transitive, if we have three connected individuals (x,y,z) where x is connected to y and y is connected to z, then x is also connected to z. This will carry parthood across several relationships. Since O is symmetric, this will mean that any two individuals where one has this property with the other will also have the other have this property with the one. P's status as a sub-property of O will then mean that any part_of relation will also constitute an overlapping relation. 
 
 Given this, it knows that c is a part of a. Since c is a part of a this will then mean that c will also overlap with a since the part_of relation is a sub-property of the overlapping relation.
-
+```
 
 ![Protege Screenshot](https://user-images.githubusercontent.com/123973744/221385499-7964fbd3-6aa3-4477-8f6f-a33b544f0b06.png)
 
